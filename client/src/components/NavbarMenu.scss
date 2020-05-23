@@ -1,0 +1,28 @@
+#basic-navbar-nav {
+  justify-content: space-evenly;
+}
+
+
+.Navbar {
+  z-index: 1;
+  width: 100%;
+  background: hsla(0, 0%, 15%, 0.7);
+  transition: box-shadow 0.25s ease 0s;
+}
+
+.img-person {
+  width: 60px;
+}
+.img-person img {
+  width: 100%;
+  border-radius: 50%;
+}
+.link-nav:hover a {
+  text-decoration: none;
+  color: #f3c027 !important;
+  transition: 1s all;
+}
+
+.link-nav a:active {
+  color: red ;
+}

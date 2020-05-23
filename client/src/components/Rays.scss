@@ -1,0 +1,37 @@
+.main-other-pages a:hover {
+    text-decoration: none;
+}
+
+.items-category {
+  border: 2px solid #b1afaf;
+  border-radius: 4px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  &:hover {
+      border: 2px solid #1d35e2;
+      transition: 1s all;
+  }
+  i {
+    font-size: 37px;
+    color: #1d35e2;
+  }
+  p {
+    margin: 0;
+    color: #545454;
+  }
+}
+
+.item-book {
+  border: 2px solid #d5d5d557;
+  border-radius: 5px;
+  padding: 16px 13px;
+  height: 372px;
+  transition: 1s all;
+  background-color: rgba(255, 255, 255, 0.5);
+  &:hover {
+    border: 2px solid #fec826;
+  }
+}

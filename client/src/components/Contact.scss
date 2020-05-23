@@ -1,0 +1,19 @@
+.form-contact {
+  position: relative;
+  height: 60.7vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #f5f5f5;
+  img {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 283px;
+  }
+}
+
+.wrapper-form-contact {
+  padding: 30px 0;
+  //   background-color: #2352c5;
+}

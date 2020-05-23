@@ -1,0 +1,27 @@
+.img-chat {
+  width: 30px;
+  margin: 0;
+}
+.img-chat img {
+  width: 100%;
+  border-radius: 25%;
+}
+
+.items-chat {
+  padding: 9px 0;
+}
+
+.message-chat {
+  padding: 0px 8px;
+  word-break: break-word;
+  text-align: justify;
+  span {
+    min-width: 10px;
+    border-radius: 16px;
+  }
+  p {
+    margin: 0;
+    color: #8e8e8e;
+    font-size: 11px;
+  }
+}
