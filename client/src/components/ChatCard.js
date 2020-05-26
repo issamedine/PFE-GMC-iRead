@@ -10,7 +10,7 @@ function ChatCard(props) {
         <figure className="img-chat">
           <img src={props.chat.sender.image} alt="" />
         </figure>
-        <p className="ml-4 mb-0">{props.chat.sender.name}</p>
+        <p className="ml-2 mb-0">{props.chat.sender.name}</p>
       </div>
       <div className="message-chat my-2">
         <span>{props.chat.message}</span>

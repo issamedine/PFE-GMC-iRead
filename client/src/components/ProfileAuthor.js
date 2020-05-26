@@ -35,39 +35,60 @@ class ProfileAuthor extends Component {
       <Redirect to="/login" />
     ) : [role] == "author" ? (
       <Container>
-        <p>welcome {person.name}</p>
-        <p>
-          <strong>Name :</strong> {person.name}{" "}
-        </p>
-        <p>
-          <strong>Email : </strong>
-          {person.email}
-        </p>
-        <p>
-          <strong>Age :</strong> {person.age}
-        </p>
-        <p>
-          <strong>Adresse :</strong> {person.adresse}
-        </p>
-        <p>
-          <strong>Tél :</strong> {person.tel}
-        </p>
+        <div className="main-other-pages">
+          <div className="profile-author">
+            <p>Welcome {person.name}</p>
+            <hr />
+            <div className="contact-information-wrapper">
+              <figure className="img-profile">
+                <img src={person.image} alt="" />
+              </figure>
+              <div className="contact-information">
+                <p className="d-flex">
+                  <i class="fas fa-caret-right"></i>{" "}
+                  <strong>Name : &nbsp;</strong>
+                  {person.name}
+                </p>
+                <p className="d-flex">
+                  <i class="fas fa-caret-right"></i>
+                  <strong>Email : &nbsp;</strong>
+                  {person.email}
+                </p>
+                <p className="d-flex">
+                  <i class="fas fa-caret-right"></i>
+                  <strong>Age : &nbsp;</strong> {person.age}
+                </p>
+                <p className="d-flex">
+                  <i class="fas fa-caret-right"></i>
+                  <strong>Adresse : &nbsp;</strong> {person.adresse}
+                </p>
+                <p className="d-flex">
+                  <i class="fas fa-caret-right"></i>
+                  <strong>Tél : &nbsp;</strong> {person.tel}
+                </p>
+              </div>
+            </div>
 
-        {/* START MODAL */}
+            {/* START MODAL */}
 
-        <Button
-          variant="dark"
-          onClick={() => this.setState({ modalShow: true })}
-        >
-          Update profile
-        </Button>
+            <Button
+              className="style-btn-login"
+              variant="dark"
+              onClick={() => this.setState({ modalShow: true })}
+            >
+              Update profile
+            </Button>
 
-        <UpdateProfile
-          show={this.state.modalShow}
-          onHide={() => this.setState({ modalShow: false })}
-        />
+            <UpdateProfile
+              show={this.state.modalShow}
+              onHide={() => this.setState({ modalShow: false })}
+            />
 
-        {/* END MODAL */}
+            {/* END MODAL */}
+          </div>
+
+          {/* END MODAL */}
+        </div>
       </Container>
     ) : (
       <Redirect to="/home" />

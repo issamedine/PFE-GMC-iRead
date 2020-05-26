@@ -19,6 +19,7 @@ class GetAllBooks extends Component {
     return (
       <div>
         <input
+          className="search-input"
           placeholder="search your book"
           type="text"
           value={this.state.text}
@@ -31,9 +32,13 @@ class GetAllBooks extends Component {
               .filter((el) =>
                 el.kind.toLowerCase().includes(this.props.kind.toLowerCase())
               )
-              .filter((el) =>
-                el.title.toLowerCase().includes(this.state.text.toLowerCase())
-              )
+              .filter((el) => {
+                console.log("this.state.text", this.state.text);
+                console.log("el", el.title);
+                return el.title
+                  .toLowerCase()
+                  .startsWith(this.state.text.toLowerCase());
+              })
               .map((book) => (
                 <>
                   <Col md={6} className="my-3">

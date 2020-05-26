@@ -46,7 +46,8 @@ class ProfileUser extends Component {
               </figure>
               <div className="contact-information">
                 <p className="d-flex">
-                  <i class="fas fa-caret-right"></i> <strong>Name : &nbsp;</strong>
+                  <i class="fas fa-caret-right"></i>{" "}
+                  <strong>Name : &nbsp;</strong>
                   {person.name}
                 </p>
                 <p className="d-flex">
@@ -72,6 +73,7 @@ class ProfileUser extends Component {
             {/* START MODAL */}
 
             <Button
+              className="style-add-basket"
               variant="dark"
               onClick={() => this.setState({ modalShow: true })}
             >

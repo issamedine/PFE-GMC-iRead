@@ -6,3 +6,20 @@
 .basket-height {
   min-height: 51.3vh;
 }
+
+
+
+.test-animation {
+  animation: go-left-right 2s  all; 
+  position: relative;
+  left: 0px;
+}
+
+@keyframes go-left-right { 
+  from {
+    left: 0px;               
+  }
+  to {
+    left: 100px; 
+  }
+}

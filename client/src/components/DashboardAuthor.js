@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Container, Row } from "react-bootstrap";
+import { Button, Container, Row, Col } from "react-bootstrap";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { Spinner } from "react-bootstrap";
@@ -56,65 +56,72 @@ class DashboardAuthor extends Component {
     ) : [role] == "author" ? (
       <>
         <Container>
-          <div>Hello {person.name} :)</div>
+        
+          <div className="main-other-pages">
+          <Row className="mb-4">
+              <Button
+               className="style-add-basket"
+                variant="dark"
+                onClick={() => this.setState({ modalShow: true })}
+              >
+                Add book
+              </Button>
+            </Row>
 
-          <Row>
-            {textSuccess}
-            {textFail}
-          </Row>
+            <ModalAddBook
+              book={this.state.book}
+              show={this.state.modalShow}
+              onHide={() => this.setState({ modalShow: false, book: null })}
+            />
+            <div>Hello {person.name} :)</div>
 
-          {this.props.books
-            .filter((el) => el.authorAddedBook == person._id)
-            .map((el) => (
-              <div className="bookDash" key={el.id}>
-                <p>
-                  <strong>title:</strong> {el.title}
-                </p>
-                <p>
-                  <img src={el.img} alt="" />
-                </p>
-                <p>
-                  <strong>date book:</strong> {el.date}
-                </p>
-                <p>
-                  <strong>description:</strong> {el.description}
-                </p>
-                <p>
-                  <strong>kind:</strong> {el.kind}
-                </p>
-                <p>
-                  <strong>price:</strong> {el.price} $
-                </p>
-                <p>
-                  <strong>publish:</strong> {el.publish}
-                </p>
+            <Row>
+              {textSuccess}
+              {textFail}
+            </Row>
 
-                <Button
-                  variant="dark"
-                  onClick={() => this.props.deleteBook(el._id)}
-                >
-                  Delete
-                </Button>
+            <Row>
+              {this.props.books
+                .filter((book) => book.authorAddedBook == person._id)
+                .map((book) => (
+                  <>
+                    <Col md={6} className="my-3">
+                      <div className="item-book shadow rounded">
+                        <div className="d-flex">
+                          <figure>
+                            <img src={book.img} alt="" className="w-100" />
+                          </figure>
+                          <div className="pl-3">
+                            <p>{book.title}</p>
+                            <p>{book.date}</p>
+                            <p>{book.description}</p>
+                            <p>{book.kind}</p>
+                            <p>{book.price} $</p>
+                          </div>
+                        </div>
 
-                <Button variant="dark" onClick={() => this.updateBook(el)}>
-                  Update
-                </Button>
-              </div>
-            ))}
-          <Row className="my-4">
-            <Button
-              variant="dark"
-              onClick={() => this.setState({ modalShow: true })}
-            >
-              Add book
-            </Button>
-          </Row>
+                        <Button
+                        className="style-add-basket"
+                          variant="dark"
+                          onClick={() => this.props.deleteBook(book._id)}
+                        >
+                          Delete
+                        </Button>
 
-          <ModalAddBook
-            book={this.state.book}
-            show={this.state.modalShow}
-            onHide={() => this.setState({ modalShow: false, book: null })}
-          />
+                        <Button
+                        className="style-add-basket"
+                          variant="dark"
+                          onClick={() => this.updateBook(book)}
+                        >
+                          Update
+                        </Button>
+                      </div>
+                    </Col>
+                  </>
+                ))}
+            </Row>
+          
+          </div>
         </Container>
       </>
     ) : (

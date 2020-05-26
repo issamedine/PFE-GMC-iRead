@@ -106,7 +106,7 @@ class ModalAddBook extends Component {
                 We'll never share your description with anyone else.
               </Form.Text>
             </Form.Group>
-            <Form.Group controlId="formBasicEmail">
+            {/* <Form.Group controlId="formBasicEmail">
               <Form.Label>Kind</Form.Label>
               <Form.Control
                 name="kind"
@@ -118,7 +118,24 @@ class ModalAddBook extends Component {
               <Form.Text className="text-muted">
                 We'll never share your kind with anyone else.
               </Form.Text>
+            </Form.Group> */}
+
+            <Form.Group  controlId="formGridState">
+              <Form.Label>Kind</Form.Label>
+              <Form.Control
+                name="kind"
+                as="select"
+                onChange={this.handleChange}
+                value={this.state.kind}
+              >
+                <option>roman</option>
+                <option>economy</option>
+                <option>child</option>
+              </Form.Control>
             </Form.Group>
+
+
+
             <Form.Group controlId="formBasicEmail">
               <Form.Label>Price</Form.Label>
               <Form.Control
@@ -145,22 +162,6 @@ class ModalAddBook extends Component {
                 We'll never share your image with anyone else.
               </Form.Text>
             </Form.Group>
-            {/* <Form.Group
-              controlId="formBasicEmail"
-                className="hidden-xs-down hidden-sm-down hidden-md-down	hidden-lg-down"
-              >
-              <Form.Label>quantity</Form.Label>
-              <Form.Control
-                name="quantity"
-                type="number"
-                placeholder="Enter a link image"
-                onChange={this.handleChange}
-                value={this.state.qte}
-              />
-              <Form.Text className="text-muted">
-                We'll never share your quantity with anyone else.
-              </Form.Text>
-            </Form.Group> */}
 
             <Button variant="dark" type="submit" onClick={this.submitForm}>
               Submit

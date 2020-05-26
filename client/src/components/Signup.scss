@@ -1,21 +1,14 @@
-.main-login {
-  height: 46.3vh;
-}
-
-.login-wrapper {
-  max-width: 40%;
-  margin: 0 auto;
-  padding: 16px 25px;
-  border: 1px solid #d5d5d5;
+.desc-signup {
+  border: 1px solid #fec826;
+  padding: 30px 0;
   &:hover {
-    border: 1px solid #fec826;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
     border-radius: 0.25rem;
-    transition: 1s all;
+    transition: 0.5s all;
   }
 }
 
-.style-btn-login {
+.style-btn-create-account {
   background-color: transparent;
   color: #2352c5;
   padding: 12px 15px;
@@ -26,4 +19,9 @@
     color: #ffffff;
     transition: 0.5s all;
   }
+}
+
+.signup-wrapper {
+  background-color: rgba(253, 235, 181, 0.1);
+  padding: 23px 50px;
 }

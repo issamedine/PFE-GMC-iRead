@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Carousel, Card } from "react-bootstrap";
-import {Animated} from "react-animated-css";
+import AOS from "aos";
+import { useSpring, animated } from "react-spring";
 
+import "aos/dist/aos.css";
 import "./home.scss";
 
 // import slide1 from "./imgs/slide1.jpg";
@@ -16,6 +18,10 @@ import "./home.scss";
 import About from "./imgs/inner-image.png";
 
 function Home() {
+  useEffect(() => {
+    AOS.init({ duration: 2000 });
+  }, []);
+
   const [index, setIndex] = useState(0);
 
   const handleSelect = (selectedIndex, e) => {
@@ -43,6 +49,8 @@ function Home() {
     },
   ];
 
+  const spring = useSpring({ from: { val: 0 }, to: { val: 458}, config:{ duration:4000} });
+
   return (
     <>
       {/* START SLIDER */}
@@ -50,8 +58,14 @@ function Home() {
         <Carousel.Item className="bg-img-wrapper1">
           <div className="layer"></div>
           {/* <img className="w-100" src={slide1} alt="First slide" /> */}
-          <Carousel.Caption className="desc-slide ">
-            <h3 className="pb-5">More Than 458,948 Book Over Here</h3>
+          <Carousel.Caption data-aos="zoom-in" className="desc-slide ">
+            <h3 className="pb-5">
+              More Than &nbsp;
+              <animated.div style={{display: "inline"}}>
+                {spring.val.interpolate((val) => Math.floor(val))}
+              </animated.div>
+              &nbsp; Book Over Here
+            </h3>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
               gravida, quam vitae est Sed non eros elementum nulla sodales
@@ -65,7 +79,7 @@ function Home() {
           {/* <img className="d-block w-100" src={slide2} alt="Second slide" /> */}
 
           <Carousel.Caption>
-            <h3 className="pb-5">More Than 458,948 Book Over Here</h3>
+            <h3 className="pb-5">More Than 458 Book Over Here</h3>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
               gravida, quam vitae est Sed non eros elementum nulla sodales
@@ -79,7 +93,7 @@ function Home() {
           {/* <img className="d-block w-100" src={slide3} alt="Third slide" /> */}
 
           <Carousel.Caption>
-            <h3 className="pb-5">More Than 458,948 Book Over Here</h3>
+            <h3 className="pb-5">More Than 458 Book Over Here</h3>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
               gravida, quam vitae est Sed non eros elementum nulla sodales
@@ -93,7 +107,7 @@ function Home() {
           {/* <img className="d-block w-100" src={slide4} alt="Third slide" /> */}
 
           <Carousel.Caption>
-            <h3 className="pb-5">More Than 458,948 Book Over Here</h3>
+            <h3 className="pb-5">More Than 458 Book Over Here</h3>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
               gravida, quam vitae est Sed non eros elementum nulla sodales
@@ -135,7 +149,7 @@ function Home() {
                 </p>
               </div>
               <div className="row">
-                <div className="col-xs-12 col-md-6">
+                <div data-aos="flip-up" className="col-xs-12 col-md-6">
                   <span className="barre-item">
                     <i class="far fa-id-badge"></i>
                     <hr />
@@ -146,7 +160,7 @@ function Home() {
                     Nullam ultricies eros pellentesque
                   </p>
                 </div>
-                <div className="col-xs-12 col-md-6">
+                <div data-aos="flip-up" className="col-xs-12 col-md-6">
                   <span className="barre-item">
                     <i class="fas fa-medal"></i>
                     <hr />
@@ -157,7 +171,7 @@ function Home() {
                     Nullam ultricies eros pellentesque
                   </p>
                 </div>
-                <div className="col-xs-12 col-md-6">
+                <div data-aos="flip-up" className="col-xs-12 col-md-6">
                   <span className="barre-item">
                     <i class="fas fa-book-open"></i>
                     <hr />
@@ -168,7 +182,7 @@ function Home() {
                     Nullam ultricies eros pellentesque
                   </p>
                 </div>
-                <div className="col-xs-12 col-md-6">
+                <div data-aos="flip-up" className="col-xs-12 col-md-6">
                   <span className="barre-item">
                     <i class="fas fa-book"></i>
                     <hr />
@@ -181,7 +195,10 @@ function Home() {
                 </div>
               </div>
             </div>
-            <div className="col-xs-12 offset-md-1 col-md-3 text-center">
+            <div
+              data-aos="fade-up"
+              className="col-xs-12 offset-md-1 col-md-3 text-center"
+            >
               <img src={About} alt="" width="300" />
             </div>
           </div>
@@ -206,7 +223,7 @@ function Home() {
 
           <div className="wrapper-staff d-flex justify-content-center">
             {staff.map((el) => (
-              <Card style={{ width: "18rem" }}>
+              <Card data-aos="fade-up" style={{ width: "18rem" }}>
                 <Card.Img variant="top" src="#" />
                 <hr style={{ width: "20%", margin: "0 auto" }} />
                 <Card.Body className="text-center">
@@ -228,8 +245,6 @@ function Home() {
         </div>
       </section>
       {/* END MEET OUR STAFF */}
-
-      
     </>
   );
 }

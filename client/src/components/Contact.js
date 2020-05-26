@@ -1,13 +1,18 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { Form, InputGroup, Button, Col } from "react-bootstrap";
+import AOS from "aos";
 
 import outer from "./imgs/outer-image.png";
 
+import "aos/dist/aos.css";
 import "./Contact.scss";
 
 function Contact() {
+  useEffect(() => {
+    AOS.init({ duration: 2000 });
+  }, []);
   return (
-    <Form className="form-contact">
+    <Form className="form-contact" data-aos="fade-up">
       <img src={outer} alt="" />
       <div className="wrapper-form-contact">
         <div className="container">

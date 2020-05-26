@@ -4,3 +4,22 @@
   align-items: center;
   height: 100vh;
 }
+
+.profile-author {
+  height: 51.3vh;
+  hr {
+    width: 20%;
+    float: left;
+    margin-top: 0;
+    border: 0.1px solid #2352c5;
+  }
+}
+
+.contact-information-wrapper {
+  padding: 33px 0px;
+  .contact-information p i {
+    color: #fec826;
+    font-size: 25px;
+    margin-right: 10px;
+  }
+}

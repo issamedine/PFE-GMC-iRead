@@ -23,7 +23,7 @@ class Rays extends Component {
     return (
       <Container>
         <div className="main-other-pages">
-          <h3>Catégories à l'honneur</h3>
+          <h3>Categories</h3>
           <div className="row">
             <div className="col-xs-12 col-md-4">
               <Link to={`/books/${this.state.roman}`}>
@@ -51,9 +51,9 @@ class Rays extends Component {
             </div>
           </div>
 
-          <h3>Les mieux notés</h3>
+          {/* <h3>Les mieux notés</h3> */}
 
-          <h3>Nouveautés</h3>
+          <h3>New</h3>
 
           <Row>
             {newBooks.map((book) => (

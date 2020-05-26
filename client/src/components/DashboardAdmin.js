@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
-import { Spinner } from "react-bootstrap";
+import { Spinner, Container } from "react-bootstrap";
 
 import "./DashboardAdmin.scss";
 
@@ -29,7 +29,13 @@ class DashboardAdmin extends Component {
     return !isRegister ? (
       <Redirect to="/login" />
     ) : [role] == "admin" ? (
-      <div>welcome to admin</div>
+      <Container>
+        <div className="main-other-pages">
+          <div className="main-dashboard-admin">
+            <p>welcome to admin</p>
+          </div>
+        </div>
+      </Container>
     ) : (
       <Redirect to="/home" />
     );

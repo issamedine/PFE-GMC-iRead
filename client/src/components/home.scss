@@ -10,37 +10,29 @@
 .bg-img-wrapper1 {
   position: relative;
   background-image: url("./imgs/slide1.jpg");
+  background-attachment: fixed;
   height: 77vh;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
 }
 
 .bg-img-wrapper2 {
   position: relative;
   background-image: url("./imgs/slide2.jpg");
+  background-attachment: fixed;
   height: 77vh;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
 }
 
 .bg-img-wrapper3 {
   position: relative;
   background-image: url("./imgs/slide3.jpg");
+  background-attachment: fixed;
   height: 77vh;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
 }
 
 .bg-img-wrapper4 {
   position: relative;
   background-image: url("./imgs/slide4.jpg");
+  background-attachment: fixed;
   height: 77vh;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
 }
 
 .carousel-caption {
