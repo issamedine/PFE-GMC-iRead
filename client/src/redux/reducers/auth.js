@@ -2,6 +2,7 @@ import {
   SIGNUP_SUCCESS,
   SIGNUP_FAIL,
   LOGIN_SUCCESS,
+  LOGIN_ERROR,
   LOGOUT,
   USER_LOAD,
   USER_LOAD_FAIL,
@@ -17,7 +18,7 @@ const initialState = {
 };
 
 export default function (state = initialState, action) {
-  const { type, payload, role } = action;
+  const { type, payload, role, data } = action;
 
   switch (type) {
     case USER_LOAD:
@@ -45,6 +46,7 @@ export default function (state = initialState, action) {
         token: null,
         isRegister: false,
         loading: false,
+        ...data
       };
 
     case LOGIN_SUCCESS:
@@ -56,6 +58,12 @@ export default function (state = initialState, action) {
         isRegister: true,
         loading: false,
       };
+    case LOGIN_ERROR:
+      return {
+        ...state,
+        loading: false,
+        ...data
+      }
 
     case LOGOUT:
     case USER_LOAD_FAIL:

@@ -23,13 +23,13 @@ class Signup extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  componentDidMount(){
+  componentDidMount() {
     AOS.init({ duration: 2000 });
   }
 
   render() {
-    const { signup, isAuth } = this.props;
-    if (isAuth) return <Redirect to="/" />;
+    const { isRegister, message } = this.props.isAuth;
+    if (isRegister) return <Redirect to="/" />;
     return (
       <Container>
         <div className="main-other-pages">
@@ -45,6 +45,11 @@ class Signup extends Component {
               and find out about all the news.
             </p>
           </div>
+          {message ? (
+            <div class="alert alert-danger text-center" role="alert">
+              {message}
+            </div>
+          ) : null}
           <Form className="my-4 signup-wrapper" data-aos="fade-up">
             <Row className="d-flex align-items-center">
               <Col md={4}>
@@ -130,12 +135,12 @@ class Signup extends Component {
             </Row>
             <div className="text-center">
               <Button
-              className="style-btn-create-account"
+                className="style-btn-create-account"
                 variant="dark"
                 type="submit"
                 onClick={(e) => {
                   e.preventDefault();
-                  signup(this.state);
+                  this.props.signup(this.state);
                 }}
               >
                 Create your account iRead
@@ -148,7 +153,7 @@ class Signup extends Component {
   }
 }
 const mapStateToProps = (state) => ({
-  isAuth: state.auth.isRegister,
+  isAuth: state.auth,
 });
 
 export default connect(mapStateToProps, { signup })(Signup);

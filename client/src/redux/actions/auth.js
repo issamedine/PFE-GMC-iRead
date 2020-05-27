@@ -58,6 +58,7 @@ export const signup = (payloadState) => async (dispatch) => {
   } catch (err) {
     dispatch({
       type: SIGNUP_FAIL,
+      data: err.response.data
     });
   }
 };
@@ -74,11 +75,10 @@ export const loginUser = (loginData) => async (dispatch) => {
 
     // localStorage.setItem("token", res.data.authToken);
   } catch (err) {
-    const errors = err.response.data;
+    // const errors = err.response.data;
     dispatch({
       type: LOGIN_ERROR,
-      // data: { error: "Something went wrong" },
-      data: errors,
+      data: err.response.data
     });
   }
 };

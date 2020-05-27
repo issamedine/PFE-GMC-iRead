@@ -19,6 +19,13 @@ module.exports = personController = {
   },
   signup: async (req, res) => {
     const { name, age, adresse, email, tel, image, password, role } = req.body;
+
+    const mail = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/; 
+
+    if (!mail.test(email)) return res.status(403).send({ message: "email invalid" });
+
+    if (password.length < 6) return res.status(403).send({ message: "password invalid" });
+
     try {
       let newPerson = new Person({
         name,
