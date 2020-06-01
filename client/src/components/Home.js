@@ -11,9 +11,9 @@ import "./home.scss";
 // import slide3 from "./imgs/slide3.jpg";
 // import slide4 from "./imgs/slide4.jpg";
 
-// import team1 from "./imgs/team1.jpg";
-// import team2 from "./imgs/team-2.jpg";
-// import team3 from "./imgs/team-3.jpg";
+import team1 from "./imgs/team1.jpg";
+import team2 from "./imgs/team-2.jpg";
+import team3 from "./imgs/team-3.jpg";
 
 import About from "./imgs/inner-image.png";
 
@@ -32,24 +32,28 @@ function Home() {
     {
       name: "Alan Walker",
       functionality: "Librarian",
-      // img: {},
+      img: team1,
       color: "Primary",
     },
     {
       name: "Harry T Nevvit",
       functionality: "Manager",
-      // img: {team2},
+      img: team2,
       color: "Secondary",
     },
     {
       name: "eStiven William",
       functionality: "Director",
-      // img: {team3},
+      img: team3,
       color: "Success",
     },
   ];
 
-  const spring = useSpring({ from: { val: 0 }, to: { val: 458}, config:{ duration:4000} });
+  const spring = useSpring({
+    from: { val: 0 },
+    to: { val: 458 },
+    config: { duration: 4000 },
+  });
 
   return (
     <>
@@ -61,7 +65,7 @@ function Home() {
           <Carousel.Caption data-aos="zoom-in" className="desc-slide ">
             <h3 className="pb-5">
               More Than &nbsp;
-              <animated.div style={{display: "inline"}}>
+              <animated.div style={{ display: "inline" }}>
                 {spring.val.interpolate((val) => Math.floor(val))}
               </animated.div>
               &nbsp; Book Over Here
@@ -223,9 +227,13 @@ function Home() {
 
           <div className="wrapper-staff d-flex justify-content-center">
             {staff.map((el) => (
-              <Card data-aos="fade-up" style={{ width: "18rem" }}>
-                <Card.Img variant="top" src="#" />
-                <hr style={{ width: "20%", margin: "0 auto" }} />
+              <Card
+                className="items-staff"
+                data-aos="fade-up"
+                style={{ width: "18rem" }}
+              >
+                <Card.Img variant="top" src={el.img} />
+                {/* <hr style={{ width: "20%", margin: "0 auto" }} /> */}
                 <Card.Body className="text-center">
                   <Card.Title>
                     <strong>{el.name}</strong>

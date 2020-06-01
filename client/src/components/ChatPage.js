@@ -56,17 +56,17 @@ class ChatPage extends Component {
       <div className="main-other-pages">
         <div className="container container-chat-page">
           <p className="pb-2 text-center">Chat page</p>
-          <div className="col-xs-12 col-md-5 offset-md-3 mb-3">
-              <div className="chat-body">
-                {this.props.chats.chats &&
-                  this.props.chats.chats.map((chat, i) => {
-                    return (
-                      <>
-                        <ChatCard key={chat._id} chat={chat} />
-                      </>
-                    );
-                  })}
-              </div>
+          <div className="col-xs-12 col-md-5 offset-md-3 mb-3 custom">
+            <div className="chat-body">
+              {this.props.chats.chats &&
+                this.props.chats.chats.map((chat, i) => {
+                  return (
+                    <>
+                      <ChatCard key={chat._id} chat={chat} />
+                    </>
+                  );
+                })}
+            </div>
             <form onSubmit={this.submitChatMessage}>
               <div className="chat-footer">
                 <input

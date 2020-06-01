@@ -4,7 +4,25 @@
 
 .chat-body {
   max-height: 34vh;
-  overflow: scroll;
+  overflow: auto;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+.chat-body:hover::-webkit-scrollbar-thumb {
+  background-color: rgb(194, 194, 194);
+  border-radius: 10px;
+  transition: background-color 3s all;
 }
 
 .chat-footer {
@@ -13,6 +31,12 @@
   align-items: center;
   input {
     width: 85%;
+    border: none;
+    border-radius: 14px;
+    padding: 3px;
+    &:visited {
+      border: 1px solid blue;
+    }
   }
   i {
     font-size: 21px;

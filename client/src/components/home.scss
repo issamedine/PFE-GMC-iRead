@@ -86,3 +86,11 @@
   background-color: #2352c5;
 }
 
+.items-staff {
+  border: none;
+}
+
+.items-staff:nth-child(2) {
+  display: flex;
+  flex-direction: column-reverse;
+}
